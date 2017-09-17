@@ -1,0 +1,155 @@
+section>h2.title {
+  font-size: 0.85rem;
+  margin: 1rem 0 0.7rem;
+  padding-left: 0.35rem;
+  border-left: 2px solid #d43c33;
+  line-height: 1;
+}
+
+.index-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0.5rem;
+  background: #d43c33;
+}
+
+.index-header .logo {
+  width: 7.1rem;
+}
+
+.index-header .download-app {
+  padding: 0 0.5rem;
+  border: 1px solid #fff;
+  /*水平 垂直*/
+  border-radius: 37.5%/100%;
+  line-height: 1.4rem;
+  font-size: 0.75rem;
+  color: #fff;
+}
+
+.index-nav>ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid rgb(204, 204, 204);
+  font-size: 0.75rem;
+}
+
+.index-nav li {
+  flex: 1;
+  text-align: center;
+}
+
+.index-nav li span {
+  position: relative;
+  display: inline-block;
+  line-height: 2rem;
+}
+
+.index-nav li.active {
+  color: #d43c33;
+}
+
+.index-nav li.active span::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  bottom: -1px;
+  border-bottom: 2px solid #d43c33;
+}
+
+.recommend-playlists>ol {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+
+.recommend-playlists>ol>li {
+  width: calc(33.333333% - 2px);
+  margin-bottom: 0.8rem;
+}
+
+.recommend-playlists>ol>li>img {
+  width: 100%;
+  display: block;
+}
+
+.recommend-playlists>ol>li>.playlists-info {
+  font-size: 0.65rem;
+  padding: 6px 2px 0 6px;
+  display: -webkit-box;
+  height: 1.95rem;
+  line-height: 1.2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.latest-music>ol>li {
+  margin: 0 0.5rem;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.latest-music h3.song-name {
+  font-size: 0.85rem;
+}
+
+.latest-music p.song-info {
+  font-size: 0.6rem;
+  color: #888;
+}
+
+.latest-music h3.song-name,
+.latest-music p.song-info {
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.latest-music .play-btn{
+  display: block;
+  position: absolute;
+  right: 0;
+  top:50%;
+  transform: translateY(-50%)
+}
+
+.latest-music .play-btn>svg{
+  fill: #aaa;
+  height: 1.2rem;
+  width: 1.2rem;
+}
+
+.index-footer{
+  padding-bottom: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url('http://owf5g9dnv.bkt.clouddn.com/index-footer.png') no-repeat center/contain;
+}
+.index-footer .logo{
+  margin-top: 3.4rem;
+  width: 11.5rem;
+}
+.index-footer .open-app{
+  margin: 0.35rem 0 0.25rem;
+  padding: 0.35rem 2.3rem;
+  border:1px solid #d33a31;
+  border-radius: 7%/50%;
+  color:#d33a31;
+  font-size: 0.8rem;
+}
+.index-footer .copyright{
+  font-size: 0.6rem;
+  line-height: 0.8rem;
+  color: #888;
+  transform: scale(.75)
+}
