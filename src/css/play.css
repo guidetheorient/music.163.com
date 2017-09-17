@@ -8,6 +8,8 @@ body,
   height: 100%;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .song-bg {
@@ -16,7 +18,7 @@ body,
   top: 0;
   width: 100%;
   height: 100%;
-  background: url('http://p4.music.126.net/CZiEmaRbgwYkNyAIBFEvig==/18201315486209392.jpg') no-repeat center/cover;
+  background: url('//p4.music.126.net/CZiEmaRbgwYkNyAIBFEvig==/18201315486209392.jpg') no-repeat center/cover;
   transform: scale(1.5);
   transform-origin: center top;
   z-index: -2;
@@ -45,17 +47,24 @@ body,
   top: 0;
   height: 6.85rem;
   width: 4.8rem;
-  background: url('http://s3.music.126.net/m/s/img/needle-ip6.png?be4ebbeb6befadfcae75ce174e7db862') no-repeat center/contain;
+  background: url('//s3.music.126.net/m/s/img/needle-ip6.png?be4ebbeb6befadfcae75ce174e7db862') no-repeat center/contain;
   z-index: 5;
 }
 
-.song-wrap .disc {
+.song-wrap .disc-container{
+  margin-top: 3.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 3.5rem;
+}
+
+.song-wrap .disc {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 14.8rem;
-  background: url('http://s3.music.126.net/m/s/img/disc-ip6.png?69796123ad7cfe95781ea38aac8f2d48') no-repeat center/contain;
+  background: url('//s3.music.126.net/m/s/img/disc-ip6.png?69796123ad7cfe95781ea38aac8f2d48') no-repeat center/contain;
   z-index: 4;
   position: relative;
 }
@@ -66,11 +75,15 @@ body,
   height: 14.8rem;
   width: 14.8rem;
   position: absolute;
-  background: url('http://s3.music.126.net/m/s/img/disc_light-ip6.png?996fc8a2bc62e1ab3f51f135fc459577') no-repeat center/contain;
+  background: url('//s3.music.126.net/m/s/img/disc_light-ip6.png?996fc8a2bc62e1ab3f51f135fc459577') no-repeat center/contain;
 }
 
-.song-wrap .disc{
+.disc.playing{
   animation: 20s linear turn infinite;
+}
+.disc.paused{
+  animation: 20s linear turn infinite;
+  animation-play-state:paused;
 }
 
 @keyframes turn{
@@ -78,34 +91,45 @@ body,
   100% {transform: rotate(360deg)}
 }
 
-.song-wrap .default-cover,
-.song-wrap .cover {
+.disc .default-cover,
+.disc .cover {
   width: 9.2rem;
   height: 9.2rem;
   border-radius: 50%;
-  background: url('http://s3.music.126.net/m/s/img/disc_default.png?7c9b3adc16f5485c2bfbe8a540534188') no-repeat center/contain;
+  background: url('//s3.music.126.net/m/s/img/disc_default.png?7c9b3adc16f5485c2bfbe8a540534188') no-repeat center/contain;
 }
 
-.song-wrap .cover {
-  /* background: url('http://s3.music.126.net/m/s/img/disc_default.png?7c9b3adc16f5485c2bfbe8a540534188') no-repeat center/contain; */
+.disc .cover {
+  /* background: url('//s3.music.126.net/m/s/img/disc_default.png?7c9b3adc16f5485c2bfbe8a540534188') no-repeat center/contain; */
 }
 
-.song-wrap .play-btn {
+.disc-container .play-btn,
+.disc .pause-btn{
   position: absolute;
   z-index: 6;
   height: 2.8rem;
   width: 2.8rem;
-  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKgAAACoCAMAAABDlVWGAAABJlBMVEUAAAAAAAD////l5eX///9iYmKDg4Pn5+f///9YWFj////09PT////4+Pjt7e3///////9oaGhBQUH////////////////CwsIaGhr///8xMTEkJCT////7+/vp6en///////////////+srKyoqKienp58fHz////y8vKTk5P///8EBAT////////////////V1dW3t7f////////////////////v7++jo6N9fX3///////+UlJT////s7Oz////Nzc3///////+RkZGPj495eXkTExP////////29vb////k5OTPz882Njb////////////c3Nz///////9ycnJsbGz///9dXV3////////Q0ND///9QUFD///////////////////9FeiN6AAAAYXRSTlNmAP3c+oWT3ueB9vA19ealRId5EQbuurpu83RxD/nh05dfAquooo+M7JtzaSolE+vMspJ3Wj7w6KSQj6ucKeXNxLWnmpmObVYd8t3axXZRSt7TvbKLideCeSzHnn4V3Nh6YarbPAAABlRJREFUeNrU14lWEmEYh/GXcdj3HQTZRCkS913UNE2zbLd9Oc/930Q2LmVpwPAC03MD/M5835n/IC6dkqHnzcVoZvdkLp2HfHruZDcTXWw+DyVdOilAt6uNjI8782Ua1W2XjTShtdDSmzRdlH6zFKq5bKQBTS5H57gqXJrP1tsb7kShkBPJFQoJ90a7np0vhblqLrrc8R7oQ4vVPZOLIp8mp8flzsanJ59FuMjcqxZdHVKFxvYDWK1lPQXpooInu4ZVYD/m6pAWNLn0DSvvekJ6KLHuxerb0qyrQwrQViV/oZzKSc/lpi6sgUrLdSN16MyWARBcOBWbnS4EAYytj67r1KGtqMUseaSvPCWLGr14u+pDZysmwFhc+i4+BmBWZgcATTXTFvO9qOS3qOlmShu68g7A6xa13F6A7yuq0ORnA9jZENU2dgDjc1IPGvMB4QNR7+AJ4IspQVObBjDmF+Wur6qxmdKAbpeBoEcGlCcIlLf7hx7lOzxOlYeaP+oTmmoYQFsGWhswGql+oMUMEInLgItHgEzRPvS43OHYVY+/fGwXGvIBkzKU6oAvZA8aywOPZEg9AvIxO9AXAZg4lKF1OAGBF71DX5jw5EyG2NkTMJ/3Co2ZcM8tQ819D8xYb9CVgA2nijSw0gs0tArBzk59aRBWQ91Dj30QjssIiofBd9wttFiGiTMZSWcTUC52B629Bg5lRB0Cr2tdQRvAfRlZ94FGN9AjA+oywupgHHWGzuRhTEbaGORnOkFTZYj4ZaT5I1BOdYBuAnEZcXFg89/QmAFtGXltMGL/ghZ9I7+g19fUV/wHtAJBvzggfxAqd0NXDPCII/KAsXIXNPXOIQd/efjvUndAmxB2xMH/zB+G5u3Qr2k4EMd0AOmvt0IrsCMOagcqt0FbJkyLg5oGs3ULNApecVReiP4NnTHALY7KDcbHv6BbDno1XTUGW39CWwa8F4flB6P1B3TRgQ/UeqSLN6GzAQd83f1dHAKzN6AfoCQOrARLN6Andr9GpiITT9/KwPLAye/QGATFTusAxsOCDKogxH6D7sOC2GkNq+B9GVALsP8LWgzAqdjJ4LJXCRlIpxAoXkOrtteT6yYmH8gg8kL1GroHU/1CoTSQBZ6CvSto0oRc/1DM7GNRLwdm8hK6DF5RgMI9j6jnheVLaBTWdaAwPy7KrUP0Alqbg4QWlPCU6JaAuZoFDcGaqEHh6RdRLQIhC/oBsppQzAXVN1UWlixoBjyqUIhozr8H3vyE1lYhpwnVnv8CpH9CZyAi2lAIPtK8pDPn0Cp8UoWqz/8zqJ5DGzCpCdWf/0lonEMzMK0J1Z//acicQ30wrgnVn/9x8LkkCWFRherPfxiSEgKvLlR//r0QkmWY14Xqz/88LEsTsqpQ/fm3RlQWoa4L1Z//OixKFNq6UP35vw9RycDGMKAYD3P9vEhlF9y6UP35d8OuvISELlR//hPwUqxh0oTqz781TbIKueFB4em4rb/Mq5IfMpRn0nOPIS+ADBUatvcz/w/0B/X2VgMACMNQ9AMnWOADKwT/QuahyZYcDcte7e146X9W+vFmWmEzOeOJGfjMCmWOEubMYw7no7wizHPHvMuMAMFIOo5IxsiOjJDLSOOM2cDYN44hxliMjGnL2OAOWMCgGgz84uBEDKDFIG8ORLhzLPO2Y5kK6PpMdJiBsR28nQkMOBEMJtTixISY4JUTZWPCgVXevesgCINhGG7dZPLEIg7GRRsMTsaoMTEOnmLUuBgn+e//JuTHGt0aKT3y3QIFpj6vO9ctnbnAmr9PIysefn0E0PfhkjW92HFtnQHULn5AAG9aISZGF3NaQYxVrInRrcVYBW4H5vkPEPIfuIV5UGXhClHT8Qv9oXQ/MckoTfb+wVTGqK8ZUl9+4mmUnpGj03pOmzlH5y/w5w6ZiAil+G9qA0KpkfWMTxKsJ6530wel3try9CwjSscg27BTDcw321gHjzyuEjj9IbwP1hPeDqHo2abP0pn5XMR/NhTB/fyo2gv3q0gh1JSkEHCrUuMSG1VxCdxDOtfR1ZDr4AGUwIUACi5JJZMyx1RHUgY3kIn0LBuFQk2EFlv7J3t0+id7JPi86wlJsfm9FUVbQrZR1LrPmQ0hKZfSXC7Fzr5LeD7uGoYBQBCGV56PS2g5ewGy+NkUNbjr9gAAAABJRU5ErkJggg==') no-repeat center/contain;
+  fill:#fff;
+}
+.disc .pause-btn,
+.disc.playing+.play-btn{
+  display: none;
+}
+.disc+.play-btn,
+.disc.playing .pause-btn{
+  display: block;
 }
 
 .song-info {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-grow: 1;
   color: #fff;
   margin-top: 1.25rem;
   font-weight: 400;
   line-height: 1.1;
+  text-align: center;
 }
 
 .song-info .song-name {
@@ -113,7 +137,7 @@ body,
 }
 
 .song-info .song-name+span {
-  margin: 0 4px;
+  margin: 0 0.2rem;
 }
 
 .song-info .song-author {
@@ -140,11 +164,13 @@ body,
 .play-footer{
   display: flex;
   justify-content: space-around;
-  position: absolute;
+  margin-bottom: 1rem;
+  padding: 0 2.1rem;
+  /* position: absolute;
   left: 0;
   right:0;
   bottom: 1rem;
-  padding: 0 2.1rem;
+  */
 }
 .play-footer>span{
   height: 2.1rem;

@@ -12,3 +12,10 @@ a{
 html,body{
   font: 14px/1.5 Helvetica,'sans-serif';
 }
+
+.icon {
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}

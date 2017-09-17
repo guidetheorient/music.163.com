@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="./src/css/reset.css">
   <link rel="stylesheet" href="./src/css/play.css">
@@ -14,13 +14,20 @@
   <div id="app">
     <div class="song-bg"></div>
     <div class="song-wrap">
-      <div class="needle" src="http://s3.music.126.net/m/s/img/needle-ip6.png?be4ebbeb6befadfcae75ce174e7db862"></div>
-      <div class="disc">
-        <div class="default-cover">
-          <img class="cover" src="http://p1.music.126.net/sudwFG6lZx6xi0tVZ9Jf9A==/7808731581356158.jpg?imageView&thumbnail=360y360&quality=75&tostatic=0"
-            alt="">
+      <div class="needle" src="//s3.music.126.net/m/s/img/needle-ip6.png?be4ebbeb6befadfcae75ce174e7db862"></div>
+      <div class="disc-container">
+        <div class="disc">
+          <div class="default-cover">
+            <img class="cover" src="//p1.music.126.net/sudwFG6lZx6xi0tVZ9Jf9A==/7808731581356158.jpg?imageView&thumbnail=360y360&quality=75&tostatic=0"
+              alt="">
+          </div>
+          <svg class="pause-btn icon" aria-hidden="true">
+            <use xlink:href="#icon-pause"></use>
+          </svg>
         </div>
-        <a class="play-btn" href=""></a>
+        <svg class="play-btn icon" aria-hidden="true">
+          <use xlink:href="#icon-play"></use>
+        </svg>
       </div>
     </div>
     <div class="song-info">
@@ -31,13 +38,7 @@
       </div>
       <div class="lrc-wrap">
         <div class="lrc">
-          <p class="lrc-line">To sink your heavy soul</p>
-          <p class="lrc-line active">To sink your heavy soul</p>
-          <p class="lrc-line">To sink your heavy soul</p>
-          <p class="lrc-line">To sink your heavy soul</p>
-          <p class="lrc-line">To sink your heavy soul</p>
-          <p class="lrc-line">To sink your heavy soul</p>
-          <p class="lrc-line">To sink your heavy soul</p>
+          <!-- 歌词 -->
         </div>
       </div>
     </div>
@@ -46,6 +47,9 @@
       <span class="download-app-btn">下 载</span>
     </div>
   </div>
+  <script src="//at.alicdn.com/t/font_418363_p3mvuazdx5bqpvi.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="./src/js/play.js"></script>
 </body>
 
 </html>
