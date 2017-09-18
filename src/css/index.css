@@ -10,7 +10,7 @@ section>h2.title {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 0.5rem;
+  padding: 0.85rem 0.5rem;
   background: #d43c33;
 }
 
@@ -70,7 +70,7 @@ section>h2.title {
 
 .recommend-playlists>ol>li {
   width: calc(33.333333% - 2px);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.75rem;
 }
 
 .recommend-playlists>ol>li>img {
@@ -104,15 +104,25 @@ section>h2.title {
 .latest-music p.song-info {
   font-size: 0.6rem;
   color: #888;
+  display: flex;
+  align-items: center;
+}
+
+.latest-music p.song-info .sq{
+  margin-right: 0.2rem;
+  fill: #FF6E31;
+  height: 0.7rem;
+  width: 0.7rem;
+  vertical-align: middle;
 }
 
 .latest-music h3.song-name,
 .latest-music p.song-info {
-  white-space: wrap;
+  margin-right: 1.5rem;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 
 .latest-music .play-btn{
   display: block;

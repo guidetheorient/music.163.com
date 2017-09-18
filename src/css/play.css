@@ -153,13 +153,24 @@ body,
 }
 
 .lrc-wrap .lrc-line {
-  line-height: 1.5;
+  font-size: 0.8rem;
+  min-height: 0.95rem;
   margin-bottom: 0.3rem;
 }
 
 .lrc-wrap .lrc-line.active {
   color: hsla(0, 0%, 100%, .6);
 }
+
+.lrc-wrap .lrc-line .origin-lrc-line{
+  display: block;
+  line-height: 1.2;
+}
+.lrc-wrap .lrc-line .translate-lrc-line{
+  display: block;
+  line-height: 1.5
+}
+
 
 .play-footer{
   display: flex;
