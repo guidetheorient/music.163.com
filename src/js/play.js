@@ -45,7 +45,7 @@ $(function(){
     audio.ontimeupdate = function(){
       let $lrcCt = $('.lrc')
       let $lrcLines = $('.lrc-line')
-      
+      let lineLength = $lrcLines.length
       //当前时间转换为与歌词中时间格式
       let time = audio.currentTime
       let minute = parseInt(time / 60)
@@ -54,7 +54,7 @@ $(function(){
       time = `${preFixZero(minute)}:${preFixZero(remain)}`
       
       $lrcLines.each(function(index,ele){
-        if(time > $(ele).attr('data-time') && time < $lrcLines.eq(index+1).attr('data-time')){
+        if(time > $(ele).attr('data-time') && (time < $lrcLines.eq(index+1).attr('data-time')||index === lineLength-1)){
           //踩坑了，获取绝对高度位移
           let offset = $lrcLines.eq(index).offset().top - $lrcCt.offset().top
           $lrcCt.css({'transform':`translateY(-${offset}px)`})
