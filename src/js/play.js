@@ -13,6 +13,7 @@ $(function(){
   function initPlay(url){
     let audio = document.createElement('audio')
     let $disc = $('#app .disc')
+    let $needle = $('.needle')
     let $playBtn = $('.disc-container .play-btn')
     let $pauseBtn = $('.disc .pause-btn')
 
@@ -21,20 +22,57 @@ $(function(){
     audio.oncanplay = function(){
       audio.play()
       $disc.addClass('playing')
+      $needle.addClass('active')
     }
     audio.onended = function(){
       $disc.addClass('paused').removeClass('playing')
+      $needle.removeClass('active')
     }
 
     //播放，暂停键
     $playBtn.click(function(){
       audio.play()
-      $disc.removeClass('paused').addClass('playing')    
+      $disc.removeClass('paused').addClass('playing')
+      $needle.addClass('active')
     })
     $pauseBtn.click(function(){
       audio.pause()
       $disc.addClass('paused').removeClass('playing')
+      $needle.removeClass('active')      
     })
+
+     //歌词滚动
+    audio.ontimeupdate = function(){
+      let $lrcCt = $('.lrc')
+      let $lrcLines = $('.lrc-line')
+      
+      //当前时间转换为与歌词中时间格式
+      let time = audio.currentTime
+      let minute = parseInt(time / 60)
+      let remain = time % 60
+
+      time = `${preFixZero(minute)}:${preFixZero(remain)}`
+      
+      $lrcLines.each(function(index,ele){
+        if(time > $(ele).attr('data-time') && time < $lrcLines.eq(index+1).attr('data-time')){
+          //踩坑了，获取绝对高度位移
+          let offset = $lrcLines.eq(index).offset().top - $lrcCt.offset().top
+          $lrcCt.css({'transform':`translateY(-${offset}px)`})
+          $(ele).addClass('active').prev().removeClass('active')
+          return
+        }
+      })
+    }
+
+    function preFixZero(minute){
+      if((''+parseInt(minute)).length === 1){
+        minute = '0'+minute
+      }else{
+        minute = minute+''
+      }
+      return minute
+    }
+
   }
 
   function separateLrc(lrc){
@@ -114,27 +152,17 @@ $(function(){
         })
   
         $lrcWrap.append($lrc)
-        offset = $('.lrc-line').outerHeight(true)
+        // offset = $('.lrc-line').outerHeight(true)
       })
     }
-    console.log(offset)
-    
-    return offset
+    // console.log(offset)
   }
   $.get('/src/songsDB.json').then(function(response){
     let song = response[id]   
     let {coverUrl,backgroundImgUrl,url,songName,songAuthor,hasLrc} = song
-    console.log(song)
 
     initImg(coverUrl,backgroundImgUrl)
     initPlay(url)
-    let height = initLyric(songName,songAuthor,hasLrc,id)
-
-    // //歌词滚动
-    // audio.ontimeupdate = function(){
-    //   let currentTime = audio.currentTime
-    // }
-
-    
+    initLyric(songName,songAuthor,hasLrc,id)
   })
 })

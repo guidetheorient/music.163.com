@@ -49,8 +49,13 @@ body,
   width: 4.8rem;
   background: url('//owf5g9dnv.bkt.clouddn.com/needle-ip6.png') no-repeat center/contain;
   z-index: 5;
+  transform: rotateZ(-19deg);
+  transform-origin: 10% -15%;
+  transition: 0.5s
 }
-
+.song-wrap .needle.active{
+  transform: rotateZ(0);
+}
 .song-wrap .disc-container{
   margin-top: 3.5rem;
   display: flex;
@@ -154,15 +159,19 @@ body,
   height: 4.6rem;
   font-size: 0.8rem;
 }
+.lrc-wrap .lrc{
+  transition: 0.3s;
+}
 
 .lrc-wrap .lrc-line {
   font-size: 0.8rem;
   min-height: 0.95rem;
   margin-bottom: 0.3rem;
+  color: hsla(0, 0%, 100%, .6);  
 }
 
 .lrc-wrap .lrc-line.active {
-  color: hsla(0, 0%, 100%, .6);
+  color: #fff;
 }
 
 .lrc-wrap .lrc-line .origin-lrc-line{
