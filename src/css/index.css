@@ -90,6 +90,11 @@ section>h2.title {
   text-overflow: ellipsis;
 }
 
+.latest-music .loading{
+  display: block;
+  margin: 0 auto 1rem;
+  width: 1rem;
+}
 .latest-music>ol>li {
   margin: 0 0.5rem;
   padding: 0.3rem 0;
@@ -113,6 +118,8 @@ section>h2.title {
   fill: #FF6E31;
   height: 0.7rem;
   width: 0.7rem;
+  /*文字过多时，需要最小宽度*/
+  min-width: 0.7rem;
   vertical-align: middle;
 }
 
@@ -143,7 +150,7 @@ section>h2.title {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: url('http://owf5g9dnv.bkt.clouddn.com/index-footer.png') no-repeat center/contain;
+  background: url('http://owf5g9dnv.bkt.clouddn.com/index-footer.png') no-repeat center/cover;
 }
 .index-footer .logo{
   margin-top: 3.4rem;

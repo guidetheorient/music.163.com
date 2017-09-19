@@ -18,7 +18,7 @@ body,
   top: 0;
   width: 100%;
   height: 100%;
-  background: url('//p4.music.126.net/CZiEmaRbgwYkNyAIBFEvig==/18201315486209392.jpg') no-repeat center/cover;
+  background: no-repeat center/cover;
   transform: scale(1.5);
   transform-origin: center top;
   z-index: -2;
@@ -47,7 +47,7 @@ body,
   top: 0;
   height: 6.85rem;
   width: 4.8rem;
-  background: url('//s3.music.126.net/m/s/img/needle-ip6.png?be4ebbeb6befadfcae75ce174e7db862') no-repeat center/contain;
+  background: url('//owf5g9dnv.bkt.clouddn.com/needle-ip6.png') no-repeat center/contain;
   z-index: 5;
 }
 
@@ -64,7 +64,7 @@ body,
   justify-content: center;
   align-items: center;
   height: 14.8rem;
-  background: url('//s3.music.126.net/m/s/img/disc-ip6.png?69796123ad7cfe95781ea38aac8f2d48') no-repeat center/contain;
+  background: url('//owf5g9dnv.bkt.clouddn.com/disc-ip6.png') no-repeat center/contain;
   z-index: 4;
   position: relative;
 }
@@ -75,7 +75,7 @@ body,
   height: 14.8rem;
   width: 14.8rem;
   position: absolute;
-  background: url('//s3.music.126.net/m/s/img/disc_light-ip6.png?996fc8a2bc62e1ab3f51f135fc459577') no-repeat center/contain;
+  background: url('//owf5g9dnv.bkt.clouddn.com/disc_light-ip6.png') no-repeat center/contain;
 }
 
 .disc.playing{
@@ -96,7 +96,7 @@ body,
   width: 9.2rem;
   height: 9.2rem;
   border-radius: 50%;
-  background: url('//s3.music.126.net/m/s/img/disc_default.png?7c9b3adc16f5485c2bfbe8a540534188') no-repeat center/contain;
+  background: url('//owf5g9dnv.bkt.clouddn.com/disc_default.png') no-repeat center/contain;
 }
 
 .disc .cover {
@@ -170,7 +170,6 @@ body,
   display: block;
   line-height: 1.5
 }
-
 
 .play-footer{
   display: flex;
