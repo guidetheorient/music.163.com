@@ -20,7 +20,7 @@
     "url":"http://owf5g9dnv.bkt.clouddn.com/2.mp3",
     "hasLrc":true,
     "lrcUrl":"",
-    "coverUrl":"http://owf5g9dnv.bkt.clouddn.com/2.webp",
+    "coverUrl":"http://owf5g9dnv.bkt.clouddn.com/2.webp?v=20170918",
     "backgroundImgUrl":"http://owf5g9dnv.bkt.clouddn.com/2.jpg"
   },
   {
@@ -32,7 +32,7 @@
     "url":"http://owf5g9dnv.bkt.clouddn.com/3.mp3",
     "hasLrc":true,
     "lrcUrl":"",
-    "coverUrl":"http://owf5g9dnv.bkt.clouddn.com/3.webp",
+    "coverUrl":"http://owf5g9dnv.bkt.clouddn.com/3.webp?v=20170918",
     "backgroundImgUrl":"http://owf5g9dnv.bkt.clouddn.com/3.jpg"
   },
   {
@@ -44,7 +44,7 @@
     "url":"http://owf5g9dnv.bkt.clouddn.com/4.mp3",
     "hasLrc":true,
     "lrcUrl":"",
-    "coverUrl":"http://owf5g9dnv.bkt.clouddn.com/4.webp",
+    "coverUrl":"http://owf5g9dnv.bkt.clouddn.com/4.webp?v=20170918",
     "backgroundImgUrl":"http://owf5g9dnv.bkt.clouddn.com/4.jpg"
   },
   {
@@ -90,7 +90,7 @@
     "album":"xx",
     "sq":false,
     "url":"http://owf5g9dnv.bkt.clouddn.com/8.mp3",
-    "hasLrc":true,
+    "hasLrc":false,
     "lrcUrl":"",
     "coverUrl":"http://owf5g9dnv.bkt.clouddn.com/8.webp",
     "backgroundImgUrl":"http://owf5g9dnv.bkt.clouddn.com/8.jpg"

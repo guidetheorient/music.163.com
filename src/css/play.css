@@ -67,6 +67,8 @@ body,
   background: url('//owf5g9dnv.bkt.clouddn.com/disc-ip6.png') no-repeat center/contain;
   z-index: 4;
   position: relative;
+  animation: 20s linear turn infinite;
+  animation-play-state:paused;
 }
 
 .disc:after {
@@ -79,10 +81,9 @@ body,
 }
 
 .disc.playing{
-  animation: 20s linear turn infinite;
+  animation-play-state:running;  
 }
 .disc.paused{
-  animation: 20s linear turn infinite;
   animation-play-state:paused;
 }
 
@@ -110,6 +111,8 @@ body,
   height: 2.8rem;
   width: 2.8rem;
   fill:#fff;
+  background: rgba(204,204,204,0.3);
+  border-radius: 50%;
 }
 .disc .pause-btn,
 .disc.playing+.play-btn{
