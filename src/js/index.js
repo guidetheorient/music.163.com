@@ -1,5 +1,5 @@
 $(function(){
-  $.get('//owf5g9dnv.bkt.clouddn.com/songsDB.json',function(response){
+  $.get('//owf5g9dnv.bkt.clouddn.com/songsDB.json?v=20170921',function(response){
     let songDB = response
     let $latestMusic = $('.latest-music')
     let $musicList = $('<ol></ol>')
