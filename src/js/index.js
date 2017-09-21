@@ -1,5 +1,5 @@
 $(function(){
-  $.get('/src/songsDB.json',function(response){
+  $.get('../src/songsDB.json',function(response){
     let songDB = response
     let $latestMusic = $('.latest-music')
     let $musicList = $('<ol></ol>')
