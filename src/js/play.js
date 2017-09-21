@@ -111,12 +111,12 @@ $(function(){
     //歌词
     let $lrcWrap = $('.lrc-wrap')
     let $lrc = $('<div class="lrc"></div>')
-    let offset
     if(!hasLrc){
       let $p = $('<p></p>')
       $p.attr({'class':'lrc-line'}).text('纯音乐，无歌词').appendTo($lrc).appendTo($lrcWrap)
     }else{
-      $.get(`/src/lrc/${id+1}.json`).then(function(response){
+      
+      $.get(`//owf5g9dnv.bkt.clouddn.com/lrc/${id+1}.json`).then(function(response){
         let lyric = response.lrc.lyric
         let tlyric = response.tlyric.lyric
         
@@ -152,12 +152,10 @@ $(function(){
         })
   
         $lrcWrap.append($lrc)
-        // offset = $('.lrc-line').outerHeight(true)
       })
     }
-    // console.log(offset)
   }
-  $.get('/src/songsDB.json').then(function(response){
+  $.get('//owf5g9dnv.bkt.clouddn.com/songsDB.json').then(function(response){
     let song = response[id]   
     let {coverUrl,backgroundImgUrl,url,songName,songAuthor,hasLrc} = song
 
