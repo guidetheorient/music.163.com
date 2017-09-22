@@ -1,11 +1,9 @@
-// if($){
-//   $('.latest-music').append($('<h3>可以使用jquery</h3>'))
-// }else{
-//   var p = document.createElement('p')
-//   var a = document.querySelector('.latest-music')
-//   p.innerText = '不可以使用jquery'
-//   a.append('p')
-// }
+
+  var p = document.createElement('p')
+  var a = document.querySelector('.latest-music')
+  p.innerText = '不可以使用jquery'
+  a.append('p')
+
 
 $(function(){
   $.get('//owf5g9dnv.bkt.clouddn.com/songsDB.json?v=20170922',function(response){
