@@ -1,0 +1,122 @@
+[
+  {
+    "id":0,
+    "songName":"My Light",
+    "songAuthor":"Chris McLeod",
+    "album":"Traveler",
+    "sq":true,
+    "url":"//owf5g9dnv.bkt.clouddn.com/1.mp3",
+    "hasLrc":true,
+    "lrcUrl":"",
+    "coverUrl":"//owf5g9dnv.bkt.clouddn.com/1.webp?v=20170918",
+    "backgroundImgUrl":"//owf5g9dnv.bkt.clouddn.com/1.jpg"
+  },
+  {
+    "id":1,
+    "songName":"Emily",
+    "songAuthor":"San Fermin",
+    "album":"JackRabbit",
+    "sq":false,
+    "url":"//owf5g9dnv.bkt.clouddn.com/2.mp3",
+    "hasLrc":true,
+    "lrcUrl":"",
+    "coverUrl":"//owf5g9dnv.bkt.clouddn.com/2.webp?v=20170918",
+    "backgroundImgUrl":"//owf5g9dnv.bkt.clouddn.com/2.jpg"
+  },
+  {
+    "id":2,
+    "songName":"Time Decides",
+    "songAuthor":"Trent Dabbs",
+    "album":"The Way We Look at Horses",
+    "sq":true,
+    "url":"//owf5g9dnv.bkt.clouddn.com/3.mp3",
+    "hasLrc":true,
+    "lrcUrl":"",
+    "coverUrl":"//owf5g9dnv.bkt.clouddn.com/3.webp?v=20170918",
+    "backgroundImgUrl":"//owf5g9dnv.bkt.clouddn.com/3.jpg"
+  },
+  {
+    "id":3,
+    "songName":"I Wanna Go To Marz",
+    "songAuthor":"John Grant",
+    "album":"Queen of Denmark",
+    "sq":true,
+    "url":"//owf5g9dnv.bkt.clouddn.com/4.mp3",
+    "hasLrc":true,
+    "lrcUrl":"",
+    "coverUrl":"//owf5g9dnv.bkt.clouddn.com/4.webp?v=20170918",
+    "backgroundImgUrl":"//owf5g9dnv.bkt.clouddn.com/4.jpg"
+  },
+  {
+    "id":4,
+    "songName":"Everglow",
+    "songAuthor":"Coldplay",
+    "album":"A Head Full of Dreams",
+    "sq":false,
+    "url":"//owf5g9dnv.bkt.clouddn.com/5.mp3",
+    "hasLrc":true,
+    "lrcUrl":"",
+    "coverUrl":"//owf5g9dnv.bkt.clouddn.com/5.webp?v=20170922",
+    "backgroundImgUrl":"//owf5g9dnv.bkt.clouddn.com/5.jpg"
+  },
+  {
+    "id":5,
+    "songName":"Waiting",
+    "songAuthor":"The Devlins",
+    "album":"Waiting",
+    "sq":true,
+    "url":"//owf5g9dnv.bkt.clouddn.com/6.mp3",
+    "hasLrc":true,
+    "lrcUrl":"",
+    "coverUrl":"//owf5g9dnv.bkt.clouddn.com/6.webp?v=20170922",
+    "backgroundImgUrl":"//owf5g9dnv.bkt.clouddn.com/6.jpg"
+  },
+  {
+    "id":6,
+    "songName":"What's Up",
+    "songAuthor":"4 Non Blondes",
+    "album":"What's Up?",
+    "sq":true,
+    "url":"//owf5g9dnv.bkt.clouddn.com/7.mp3",
+    "hasLrc":true,
+    "lrcUrl":"",
+    "coverUrl":"//owf5g9dnv.bkt.clouddn.com/7.webp",
+    "backgroundImgUrl":"//owf5g9dnv.bkt.clouddn.com/7.jpg"
+  },
+  {
+    "id":7,
+    "songName":"Intro",
+    "songAuthor":"The xx",
+    "album":"xx",
+    "sq":false,
+    "url":"//owf5g9dnv.bkt.clouddn.com/8.mp3",
+    "hasLrc":false,
+    "lrcUrl":"",
+    "coverUrl":"//owf5g9dnv.bkt.clouddn.com/8.webp",
+    "backgroundImgUrl":"//owf5g9dnv.bkt.clouddn.com/8.jpg"
+  },
+  {
+    "id":8,
+    "songName":"Hero",
+    "songAuthor":"Family of the Year",
+    "album":"Boyhood (Music from the Motion Picture)",
+    "sq":true,
+    "url":"//owf5g9dnv.bkt.clouddn.com/9.mp3",
+    "hasLrc":true,
+    "lrcUrl":"",
+    "coverUrl":"//owf5g9dnv.bkt.clouddn.com/9.webp",
+    "backgroundImgUrl":"//owf5g9dnv.bkt.clouddn.com/9.jpg"
+  },
+  {
+    "id":9,
+    "songName":"走歌人",
+    "songAuthor":"暗杠",
+    "album":"走歌人",
+    "sq":true,
+    "url":"//owf5g9dnv.bkt.clouddn.com/10.mp3",
+    "hasLrc":true,
+    "lrcUrl":"",
+    "coverUrl":"//owf5g9dnv.bkt.clouddn.com/10.webp",
+    "backgroundImgUrl":"//owf5g9dnv.bkt.clouddn.com/10.jpg"
+  }
+]
