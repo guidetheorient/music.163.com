@@ -155,7 +155,7 @@ $(function(){
       })
     }
   }
-  $.get('//owf5g9dnv.bkt.clouddn.com/songsDB.json?v=20170921').then(function(response){
+  $.get('//owf5g9dnv.bkt.clouddn.com/songsDB.json?v=20170922').then(function(response){
     let song = response[id]   
     let {coverUrl,backgroundImgUrl,url,songName,songAuthor,hasLrc} = song
 
