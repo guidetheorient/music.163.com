@@ -3,5 +3,7 @@
 
 
 # 预览
+
 请使用手机浏览器打开`http://jidong.life`，或者使用手机QQ或微信扫描以下二维码
-![QR Code](https://owf5g9dnv.bkt.clouddn.com/jidong.life.png)
+
+![1](http://owf5g9dnv.bkt.clouddn.com/jidong.life.png)
