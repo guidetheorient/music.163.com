@@ -2,9 +2,6 @@
 网易云音乐移动端网页版
 
 
-# 使用
-1.npm i
-
-2.npm run anywhere
-
-3.https://192.168.0.101:8001/+**.html
+# 预览
+请使用手机浏览器打开`http://jidong.life`，或者使用手机QQ或微信扫描以下二维码
+![QR Code](https://owf5g9dnv.bkt.clouddn.com/jidong.life.png)
