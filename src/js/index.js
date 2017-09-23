@@ -184,23 +184,23 @@ $(function(){
             })
           })
         }
-        mockHotSearch(songDB)
-        function mockHotSearch(songDB){
-          let array = songDB
-          console.log(array)
-          for(let i = 0;i< 6;i++){
-            let number = 
-          }
-        // `<ul>
-        //   <li class="item"><a>一一一一</a></li>
-        //   <li class="item"><a>二而而</a></li>
-        //   <li class="item"><a>二而而</a></li>
-        //   <li class="item"><a>123</a></li>
-        //   <li class="item"><a>哈哈哈哈</a></li>
-        //   <li class="item"><a>哈哈哈哈</a></li>
-        //   <li class="item"><a>哈哈</a></li>
-        // </ul>`
-        }
+        // mockHotSearch(songDB)
+        // function mockHotSearch(songDB){
+        //   let array = songDB
+        //   console.log(array)
+        //   for(let i = 0;i< 6;i++){
+        //     let number = 
+        //   }
+        // // `<ul>
+        // //   <li class="item"><a>一一一一</a></li>
+        // //   <li class="item"><a>二而而</a></li>
+        // //   <li class="item"><a>二而而</a></li>
+        // //   <li class="item"><a>123</a></li>
+        // //   <li class="item"><a>哈哈哈哈</a></li>
+        // //   <li class="item"><a>哈哈哈哈</a></li>
+        // //   <li class="item"><a>哈哈</a></li>
+        // // </ul>`
+        // }
         $liContent.attr('isLoaded','yes')
 
       }
