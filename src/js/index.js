@@ -109,17 +109,100 @@ $(function(){
           $liContent.attr('data-isLoaded','yes')
         })
       }else if(index ===2){
-        $.get('./src/search.json').then(function(response){
-          
 
-
-
-
-
-
-
-          $liContent.attr('isLoaded','yes')
+        let $searchBox = $('.search input')
+        let timer
+        let $emptyInput = $('.search .x-icon')
+        let $hotSearch = $('.hot-search')
+        let $searchHistory = $('.search-history')
+        let $syncSearch = $('.sync-search')
+        let $searchWhat = $('.search-what')
+        //清空input值
+        $emptyInput.on('click',function(){
+          $searchBox.val('')
+          $syncSearch.text('')
+          $hotSearch.add($searchHistory).addClass('active')
         })
+
+        $searchBox.on('input',function(e){
+          let value = e.target.value.trim()
+          if(value ===''){
+            $emptyInput.add($syncSearch).removeClass('active');
+            $hotSearch.add($searchHistory).addClass('active')
+            return
+          }else{
+            $emptyInput.addClass('active');
+            $hotSearch.add($searchHistory).removeClass('active')
+            
+            $h4 = $('<h4 class="search-what"></h4>').text(`搜索“${value}”`)
+            $syncSearch.html($h4).addClass('active')
+          
+            clearTimeout(timer)
+            timer = setTimeout(function() {
+              console.log(value)
+              search(value).then(function(array){
+                console.log(array)
+                displaySearch(array)
+              })
+            }, 1000);
+          }
+        })
+        function displaySearch(array){
+          let $musicList = $('<ul></ul>')
+          array.map(function(ele,index){
+            let $li = `
+              <li class="item" data-index= ${ele.id}>
+                <svg class="icon search-icon" aria-hidden="true">
+                  <use xlink:href="#icon-search"></use>
+                </svg>
+                <span>${ele.songName}</span>
+              </li>
+            `
+            $musicList.append($li)
+          })
+          $syncSearch.append($musicList)
+         
+          $('.sync-search>ul').on('click','li',function(e){
+            window.location.href = `./play.html?id=${$(e.currentTarget).attr('data-index')}`
+          })
+        }
+        
+
+        function search(value){
+          return new Promise(function(resolve,reject){
+            $.get('./src/search.json').then(function(response){
+              let songDB = response
+              
+              let array = songDB.filter(function(ele,index){
+                for(key in ele){
+                  if(key!=='id' && ele[key].toString().toLowerCase().indexOf(value.toLowerCase())!==-1){
+                    return true
+                  }
+                }
+              })
+              resolve(array)
+            })
+          })
+        }
+        mockHotSearch(songDB)
+        function mockHotSearch(songDB){
+          let array = songDB
+          console.log(array)
+          for(let i = 0;i< 6;i++){
+            let number = 
+          }
+        // `<ul>
+        //   <li class="item"><a>一一一一</a></li>
+        //   <li class="item"><a>二而而</a></li>
+        //   <li class="item"><a>二而而</a></li>
+        //   <li class="item"><a>123</a></li>
+        //   <li class="item"><a>哈哈哈哈</a></li>
+        //   <li class="item"><a>哈哈哈哈</a></li>
+        //   <li class="item"><a>哈哈</a></li>
+        // </ul>`
+        }
+        $liContent.attr('isLoaded','yes')
+
       }
     })
 

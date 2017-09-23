@@ -122,22 +122,74 @@
       </section>
 
     </li>
-    <li>
+    <li class="">
       <section class="search">
         <form action="">
           <div class="input-ct">
-            <i></i>
-            <input type="text" placeholder="">
-        
+            <svg class="icon search-icon" aria-hidden="true">
+              <use xlink:href="#icon-search"></use>
+            </svg>
+            <input type="text" placeholder="搜索歌曲、歌手、专辑">
+            <svg class="icon x-icon" aria-hidden="true">
+              <use xlink:href="#icon-x"></use>
+            </svg>
           </div>
         </form>
-        <img class="loading" src="//owf5g9dnv.bkt.clouddn.com/indexLoading.gif" alt="">      
-      
+      </section>
+      <img class="loading" src="//owf5g9dnv.bkt.clouddn.com/indexLoading.gif" alt="">            
+      <section class="hot-search active">
+        <h4 class="title">热门搜索</h4>
+        <ul>
+          <li class="item"><a>一一一一</a></li>
+          <li class="item"><a>二而而</a></li>
+          <li class="item"><a>二而而</a></li>
+          <li class="item"><a>123</a></li>
+          <li class="item"><a>哈哈哈哈</a></li>
+          <li class="item"><a>哈哈哈哈</a></li>
+          <li class="item"><a>哈哈</a></li>
+        </ul>
+      </section>
+      <section class="search-history active">
+        <ul>
+          <li class="item">
+            <svg class="icon history-icon" aria-hidden="true">
+              <use xlink:href="#icon-history"></use>
+            </svg>
+            <div class="history">
+                <span>你曾是</span>
+                <svg class="icon close-icon" aria-hidden="true">
+                  <use xlink:href="#icon-close"></use>
+                </svg>
+            </div>
+          </li>
+          <li class="item">
+              <svg class="icon history-icon" aria-hidden="true">
+                <use xlink:href="#icon-history"></use>
+              </svg>
+              <div class="history">
+                  <span>你曾是</span>
+                  <svg class="icon close-icon" aria-hidden="true">
+                    <use xlink:href="#icon-close"></use>
+                  </svg>
+              </div>
+            </li>
+        </ul>
+      </section>
+      <section class="sync-search">
+        <!-- <h4 class="search-what"></h4> -->
+        <!-- <ul>
+          <li class="item">
+            <svg class="icon search-icon" aria-hidden="true">
+              <use xlink:href="#icon-search"></use>
+            </svg>
+            <span>你曾是</span>
+          </li>  
+        </ul> -->
       </section>
     </li>
   </ol>
   
-  <script src="//at.alicdn.com/t/font_418363_1129s931p95jc3di.js"></script>
+  <script src="//at.alicdn.com/t/font_418363_gwt63onp0d9ozuxr.js"></script>
   <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
   <script src="./src/js/index.js"></script>
 </body>

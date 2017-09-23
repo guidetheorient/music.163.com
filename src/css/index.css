@@ -229,3 +229,139 @@ section>h2.title {
   font-size: 12px;
   color: hsla(0,0%,100%,.8);
 }
+.search{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.search form{
+  display: flex;
+  padding: 0.75rem 0.5rem;
+}
+.search .input-ct{
+  display: flex;
+  align-items: center;
+  flex:1;
+  background: #ebecec;
+  border-radius: 10%/100%;
+}
+.search .search-icon{
+  margin: 0 0.4rem;
+  height: 0.65rem;
+  width: 0.65rem;
+  fill:#C9C9CA;
+}
+.search .x-icon{
+  margin: 0.4rem;
+  height: 0.7rem;
+  width: 0.7rem;
+  fill: #BCBDBD;
+  display: none;
+}
+.search .x-icon.active{
+  display: block;
+}
+.search .input-ct input{
+  flex:1;
+  height: 1.5rem;
+  overflow: hidden;
+  color: #333;
+  border: 0px solid;  
+  background: transparent;
+  outline: none;
+  font-size: 0.7rem;
+}
+input::-webkit-input-placeholder {
+  color: #c9c9c9;
+  font-size: 0.7rem;
+}
+.hot-search{
+  padding: 0.75rem 0.5rem 0;
+  display: none;
+}
+.hot-search.active{
+  display: block;
+}
+.hot-search>h4.title{
+  font-size: 0.6rem;
+  line-height: 0.6rem;
+  color: #666;
+}
+.hot-search>ul{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.5rem 0 0.35rem;
+}
+.hot-search>ul>.item{
+  
+  margin: 0 0.4rem 0.4rem 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 37.5%/100%;
+  font-size: 0.7rem;
+  line-height: 1.6rem;
+  color: #333;
+}
+.hot-search>ul>.item>a{
+  display: block;
+  padding: 0 0.7rem;
+}
+.search-history{
+  display: none;
+}
+.search-history.active{
+  display: block;
+}
+.search-history>ul>.item{
+  display: flex;
+  align-items: center;
+}
+.search-history>ul .history{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex:1;
+  font-size: 0.7rem;
+  line-height: 2rem;
+  color: #333;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+}
+.search-history .history-icon{
+  margin: 0 0.4rem;
+  height: 0.9rem;
+  width: 0.9rem;
+  fill: #C9CACA;
+}
+.search-history .close-icon{
+  margin: 0.4rem 0.8rem;
+  height: 0.8rem;
+  width: 0.8rem;
+  fill: #999899;
+}
+.sync-search{
+  display: none;
+}
+.sync-search.active{
+  display: block;
+}
+.sync-search .search-what{
+  margin: 0 0.5rem;
+  line-height: 2.5rem;
+  font-size: 0.75rem;
+  color: #507daf;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1)  
+}
+.sync-search .search-icon{
+  margin: 0 0.3rem 0 0.4rem;
+  height: 0.75rem;
+  width: 0.75rem;
+  fill:#C9C9CA;
+}
+.sync-search>ul>li{
+  display: flex;
+  align-items: center;
+  font-size: 0.7rem;
+  line-height: 2rem;
+  color: #333;
+}
+.sync-search>ul>li>span{
+  flex:1;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+}

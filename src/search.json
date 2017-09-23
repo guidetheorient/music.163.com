@@ -1,3 +1,62 @@
-{
-  "hotSearch":["那年花开正圆","Taylor Swift","Everglow"]
-}
+[
+  {
+    "id":0,
+    "songName":"My Light",
+    "songAuthor":"Chris McLeod",
+    "album":"Traveler"
+  },
+  {
+    "id":1,
+    "songName":"Emily",
+    "songAuthor":"San Fermin",
+    "album":"JackRabbit"
+  },
+  {
+    "id":2,
+    "songName":"Time Decides",
+    "songAuthor":"Trent Dabbs",
+    "album":"The Way We Look at Horses"
+  },
+  {
+    "id":3,
+    "songName":"I Wanna Go To Marz",
+    "songAuthor":"John Grant",
+    "album":"Queen of Denmark"
+  },
+  {
+    "id":4,
+    "songName":"Everglow",
+    "songAuthor":"Coldplay",
+    "album":"A Head Full of Dreams"
+  },
+  {
+    "id":5,
+    "songName":"Waiting",
+    "songAuthor":"The Devlins",
+    "album":"Waiting"
+  },
+  {
+    "id":6,
+    "songName":"What's Up",
+    "songAuthor":"4 Non Blondes",
+    "album":"What's Up?"
+  },
+  {
+    "id":7,
+    "songName":"Intro",
+    "songAuthor":"The xx",
+    "album":"xx"
+  },
+  {
+    "id":8,
+    "songName":"Hero",
+    "songAuthor":"Family of the Year",
+    "album":"Boyhood (Music from the Motion Picture)"
+  },
+  {
+    "id":9,
+    "songName":"走歌人",
+    "songAuthor":"暗杠",
+    "album":"走歌人"
+  }
+]
