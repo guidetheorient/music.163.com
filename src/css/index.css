@@ -174,7 +174,7 @@ section>h2.title {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: url('http://owf5g9dnv.bkt.clouddn.com/index-footer.png') no-repeat center/cover;
+  background: url('//owf5g9dnv.bkt.clouddn.com/index-footer.png') no-repeat center/cover;
 }
 .index-footer .logo{
   margin-top: 3.4rem;
@@ -293,7 +293,7 @@ input::-webkit-input-placeholder {
 .hot-search>ul>.item{
   margin: 0 0.4rem 0.4rem 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 1rem/100%;
+  border-radius: 0.6rem/50%;
   font-size: 0.7rem;
   line-height: 1.6rem;
   color: #333;

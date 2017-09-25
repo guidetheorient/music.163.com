@@ -42,12 +42,13 @@ html,body,#download-page{
   width: 5.4rem;
 }
 #download-page .download-button{
+  width: 9.5rem;
   display: block;  
   margin: 2rem auto 0;
-  padding: 0 2rem;
   background: #311412;
   border:1px solid #7c6a69;
   border-radius: 0.2rem; 
+  text-align: center;
   line-height: 2.3rem;
   font-size: 1.2rem;
   color:#fff;
