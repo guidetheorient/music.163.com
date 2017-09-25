@@ -117,6 +117,64 @@ $(function(){
         let $searchHistory = $('.search-history')
         let $syncSearch = $('.sync-search')
         let $searchWhat = $('.search-what')
+        let regexp = /^\[(.*)\]$/
+        //组织form表单默认提交，储存查询历史
+        $('.search form').keypress(function(e){
+          if(e.keyCode==13){
+            let value = $searchBox.val()
+            e.preventDefault();
+            if(localStorage.getItem('searchHistory')===null||!(regexp.test(localStorage.getItem('searchHistory')))){
+              localStorage.setItem('searchHistory','[]')
+            }
+            let item = localStorage.getItem('searchHistory')
+            let itemArray = item.match(regexp)[1].split(',')
+            if(value !==''){
+              itemArray.push(value)
+              localStorage.setItem('searchHistory','['+itemArray+']')
+              generateHistory(itemArray)
+            }
+          }
+        })
+
+
+        // generateHistory()
+        function generateHistory(itemArray){
+          console.log(itemArray)
+          let $ul = $('<ul></ul>')
+          if(itemArray.length < 1) return;
+          itemArray.map(function(ele){
+            if(ele==='')return
+            let $li = `
+              <li class="item">
+                <svg class="icon history-icon" aria-hidden="true">
+                  <use xlink:href="#icon-history"></use>
+                </svg>
+                <div class="history">
+                    <span>${ele}</span>
+                    <svg class="icon close-icon" aria-hidden="true">
+                      <use xlink:href="#icon-close"></use>
+                    </svg>
+                </div>
+              </li>
+            `
+            $ul.append($li)
+          })
+          $searchHistory.html($ul)
+          $searchHistory.on('click','.close-icon',function(e){
+            let itemArray = localStorage.getItem('searchHistory').match(regexp)[1].split(',')
+            let oneHistory = $(e.currentTarget).siblings('span').text()
+            // console.log(oneHistory)
+            let index = itemArray.indexOf(oneHistory)
+            $(e.currentTarget).parents('.item').remove()
+            if(index!==-1){itemArray.splice(index,1)}
+
+            localStorage.setItem('searchHistory','['+itemArray+']')            
+            
+          })
+        }
+
+
+
         //清空input值
         $emptyInput.on('click',function(){
           $searchBox.val('')
@@ -139,25 +197,27 @@ $(function(){
           
             clearTimeout(timer)
             timer = setTimeout(function() {
-              console.log(value)
               search(value).then(function(array){
-                console.log(array)
                 displaySearch(array)
               })
             }, 1000);
           }
         })
+
+        mockHotSearch(songDB)
+
+        $liContent.attr('data-isLoaded','yes')
         function displaySearch(array){
           let $musicList = $('<ul></ul>')
           array.map(function(ele,index){
-            let $li = `
+            let $li = $(`
               <li class="item" data-index= ${ele.id}>
                 <svg class="icon search-icon" aria-hidden="true">
                   <use xlink:href="#icon-search"></use>
                 </svg>
                 <span>${ele.songName}</span>
               </li>
-            `
+            `)
             $musicList.append($li)
           })
           $syncSearch.append($musicList)
@@ -166,8 +226,6 @@ $(function(){
             window.location.href = `./play.html?id=${$(e.currentTarget).attr('data-index')}`
           })
         }
-        
-
         function search(value){
           return new Promise(function(resolve,reject){
             $.get('./src/search.json').then(function(response){
@@ -184,25 +242,29 @@ $(function(){
             })
           })
         }
-        // mockHotSearch(songDB)
-        // function mockHotSearch(songDB){
-        //   let array = songDB
-        //   console.log(array)
-        //   for(let i = 0;i< 6;i++){
-        //     let number = 
-        //   }
-        // // `<ul>
-        // //   <li class="item"><a>一一一一</a></li>
-        // //   <li class="item"><a>二而而</a></li>
-        // //   <li class="item"><a>二而而</a></li>
-        // //   <li class="item"><a>123</a></li>
-        // //   <li class="item"><a>哈哈哈哈</a></li>
-        // //   <li class="item"><a>哈哈哈哈</a></li>
-        // //   <li class="item"><a>哈哈</a></li>
-        // // </ul>`
-        // }
-        $liContent.attr('isLoaded','yes')
+        function mockHotSearch(songDB){
+          let DB = songDB
+          let array = []
+          while (array.length < 6) {
+            let number = Math.floor(Math.random()*10)
+            if(array.indexOf(number) === -1){
+              array.push(number)
+            }
+          }
+          let $ul = $('<ul></ul>')
+          array.map(function(ele){
+            songDB.map(function(el){
+              if(el.id === ele){
+                let $li = $(`
+                <li class="item"><a href="./play.html?id=${el.id}">${el.songName}</a></li>               
+                `)
+                $ul.append($li)
+              }
+            })
+          })
+          $hotSearch.append($ul)
 
+        } 
       }
     })
 

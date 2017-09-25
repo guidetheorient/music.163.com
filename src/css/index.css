@@ -291,10 +291,9 @@ input::-webkit-input-placeholder {
   margin: 0.5rem 0 0.35rem;
 }
 .hot-search>ul>.item{
-  
   margin: 0 0.4rem 0.4rem 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 37.5%/100%;
+  border-radius: 1rem/100%;
   font-size: 0.7rem;
   line-height: 1.6rem;
   color: #333;
@@ -302,6 +301,7 @@ input::-webkit-input-placeholder {
 .hot-search>ul>.item>a{
   display: block;
   padding: 0 0.7rem;
+  color: #333;
 }
 .search-history{
   display: none;

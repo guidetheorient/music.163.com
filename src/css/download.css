@@ -1,0 +1,54 @@
+html,body,#download-page{
+  height: 100%;
+}
+#download-page{
+  background: url('http://owf5g9dnv.bkt.clouddn.com/download-bg.jpg') center/contain;
+  padding-top: 0.8rem;
+  position: relative;
+}
+#download-page .open-app{
+  line-height: 1.35;
+  text-align: center;
+  font-size:0.65rem;
+  color: #fff;
+}
+#download-page .wide-text{
+  letter-spacing: 0.1rem;
+  vertical-align: 0.05rem;
+}
+#download-page span{
+  font-family: simsun,\5b8b\4f53;
+}
+#download-page .open-here{
+  margin-top: 0.8rem;
+  text-align: center;
+  font-size: 0.6rem;
+  color: #999;
+}
+#download-page .open-here a{
+  color: #999;
+  text-decoration: underline;
+}
+#download-page .download{
+  margin-top: -2rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%)
+}
+#download-page .download .netease-logo{
+  margin: 0 auto;
+  display: block;
+  width: 5.4rem;
+}
+#download-page .download-button{
+  display: block;  
+  margin: 2rem auto 0;
+  padding: 0 2rem;
+  background: #311412;
+  border:1px solid #7c6a69;
+  border-radius: 0.2rem; 
+  line-height: 2.3rem;
+  font-size: 1.2rem;
+  color:#fff;
+}
