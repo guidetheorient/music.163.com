@@ -25,6 +25,15 @@ gulp.task('dist:js',function () {
 })
 
 
+gulp.task('rev',['dist:css','dist:js'],function () {
+  return gulp.src(['dist/css/*.css','dist/js/*.js'])
+             .pipe(rev())
+             .pipe(gulp.dest('dist/css'))
+             .pipe(rev.manifest())
+             .pipe(gulp.dest('rev'))
+})
+
+
 gulp.task('default',['dist:css','dist:js'])
 
 gulp.task('watch',function () {

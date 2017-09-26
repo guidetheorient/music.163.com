@@ -2,9 +2,12 @@ html,body{
   color:#666;
   background: #f8f8f8;
 }
+
 .playlist-header{
   display: flex;
   padding: 1.5rem 0.5rem 1.5rem 0.75rem;
+  /* filter: blur(20px); */
+  /* transform: scale(1.5); */
   background: url('//owf5g9dnv.bkt.clouddn.com/img/recommend/recommend2.webp') no-repeat center/cover;
 }
 .playlist-header .cover{
@@ -129,7 +132,8 @@ html,body{
   display: flex;
 }
 .music-list>ol>li>.song{
-  width:90%
+  width:90%;
+  padding-right: 2rem;
 }
 .playlist h3.order-number{
   width:1.4rem;

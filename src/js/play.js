@@ -1,7 +1,7 @@
 $(function(){
   let search = window.location.search
   let id = Number(search.match(/\?id=(\d+)/)[1])
-  
+
   function initImg(coverUrl,bgUrl){
     let $cover = $('<img/>')
     //背景图片

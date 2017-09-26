@@ -68,24 +68,24 @@ section>h2.title {
 }
 
 
-.recommend-playlists>ol {
+.recommend-playlists>ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 1.2rem;
 }
 
-.recommend-playlists>ol>li {
+.recommend-playlists>ul>li {
   width: calc(33.333333% - 2px);
   margin-bottom: 0.75rem;
 }
 
-.recommend-playlists>ol>li>img {
+.recommend-playlists>ul>li>img {
   width: 100%;
   display: block;
 }
 
-.recommend-playlists>ol>li>.playlists-info {
+.recommend-playlists>ul>li>.playlists-info {
   font-size: 0.65rem;
   padding: 6px 2px 0 6px;
   display: -webkit-box;

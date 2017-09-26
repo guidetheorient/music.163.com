@@ -1,9 +1,33 @@
 $(function(){
+  $.get('/src/recommendList.json').then(function(response){
+    let recommendList = response
+    console.log(recommendList)
+    let $recommendList = $('.recommend-playlists')
+    let $ul = $('<ul></ul>')
+
+    recommendList.map(function(e,index){
+      $li = `
+        <li data-rId=${e.rId}>
+          <img src="${e.rCoverUrl}" alt="">
+          <p class="playlists-info">${e.rTitle}</p>
+        </li>
+      `
+      $ul.append($li)
+    })
+    $recommendList.append($ul)
+    $recommendList.find('ul').on('click','li',function(e){
+      let rid = $(e.currentTarget).attr('data-rId')
+      console.log(rid)
+      window.location.href = `./playlist.html?rid=${rid}`
+    })    
+  })
+  
   $.get('//owf5g9dnv.bkt.clouddn.com/songsDB.json?v=20170922',function(response){
     let songDB = response
     let $latestMusic = $('.latest-music')
     let $musicList = $('<ol></ol>')
-
+    // alert('whf23l',songDB)
+    
     songDB.forEach((ele,index)=>{
       $li = $(`
         <li>
@@ -32,6 +56,7 @@ $(function(){
       
       $musicList.append($li)
     })
+    
     //最新音乐
     $latestMusic.append($musicList).find('.loading').remove()
 
@@ -267,8 +292,5 @@ $(function(){
         } 
       }
     })
-
-
   })
-
 })
