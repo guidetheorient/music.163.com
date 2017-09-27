@@ -6,4 +6,9 @@
 
 请使用手机浏览器打开`http://jidong.life`，或者使用手机QQ或微信扫描以下二维码
 
-![1](http://owf5g9dnv.bkt.clouddn.com/jidong.life.png)
+![二维码](http://owf5g9dnv.bkt.clouddn.com/jidong.life.png)
+
+
+# 待优化
+* 后退返回到保留的tab位置
+* css整合

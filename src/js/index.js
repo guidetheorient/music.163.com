@@ -76,7 +76,7 @@ $(function(){
     $('.tab-content > li').eq(index).addClass('active').siblings().removeClass('active')
   })
   
-  
+
   //trigger指定或冒泡到祖先元素
   $('.index-nav').on('tabSwitch',function(e,index){
     let $liContent = $('.tab-content>li').eq(index)
@@ -91,7 +91,8 @@ $(function(){
       $.get('./src/hotlist.json').then(function(response){
         let songDB = response
         let $musicList = $('<ol></ol>')
-        let $hotListTab = $('.hot-list-tab') 
+        let $hotListTab = $('.hot-list-tab')
+        let $updateDate = $('.hot-top .update-date')
         songDB.forEach((ele,index)=>{
           $li = $(`
             <li>
@@ -128,9 +129,17 @@ $(function(){
           window.location.href = `./play.html?id=${index}`
         })
 
-        //已加载
+        //标记已加载
         $liContent.attr('data-isLoaded','yes')
 
+        //更新日期
+        let now = new Date()
+        let month = now.getMonth()+1
+        let day = now.getDate()
+        if(month<10){month = '0'+month}
+        let date = `${month}月${day}日`
+        $updateDate.text(`更新日期：${date}`)
+        
         function orderNumber(index){
           let number = index+1
           if(Number(number)>0&&Number(number)<10){
