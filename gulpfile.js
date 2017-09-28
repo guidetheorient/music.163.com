@@ -5,44 +5,8 @@ const clean = require('gulp-clean');//文件夹清空
 const uglify = require('gulp-uglify');
 const babel = require("gulp-babel");
 
-gulp.task('dist:css',function () {
-  gulp.src('dist/css/*').pipe(clean());
-  return gulp.src('src/css/*.css')
-             .pipe(csso())
-             .pipe(autoprefixer({
-                  browsers:['last 2 versions'],
-                  cascade:false
-             }))
-             .pipe(gulp.dest('dist/css'))
-})
 
-gulp.task('dist:js',function () {
-  gulp.src('dist/js/*').pipe(clean());
-  return gulp.src('src/js/*.js')
-             .pipe(babel())
-             .pipe(uglify())
-             .pipe(gulp.dest('dist/js'))
-})
-
-
-gulp.task('rev',['dist:css','dist:js'],function () {
-  return gulp.src(['dist/css/*.css','dist/js/*.js'])
-             .pipe(rev())
-             .pipe(gulp.dest('dist/css'))
-             .pipe(rev.manifest())
-             .pipe(gulp.dest('rev'))
-})
-
-
-gulp.task('default',['dist:css','dist:js'])
-
-gulp.task('watch',function () {
-  gulp.watch('src/**/*.css',['dist:css'])
-  gulp.watch('src/**/*.js',['dist:js'])
-})
-
-
-//html压缩
+//html:压缩
 const htmlmin = require('gulp-htmlmin');//html压缩组件
 const removeEmptyLines = require('gulp-remove-empty-lines');//清除空白行
 gulp.task('minifyHtml',function(){
@@ -67,10 +31,69 @@ gulp.task('minifyHtml',function(){
       .pipe(gulp.dest('dist'));
 });
 
-//替换link script地址
+//html:替换中link script地址
 const replace = require('gulp-replace');//替换html片段
 gulp.task('cssJsPathInHtml',['minifyHtml'],function(){
   return gulp.src('dist/*.html')
-        .pipe(replace('./src','./'))
+        .pipe(replace('./src/','./'))
         .pipe(gulp.dest('dist'))
 })
+
+//css：压缩，生成版本号
+gulp.task('dist:css',function () {
+  gulp.src('dist/css/*').pipe(clean());
+  return gulp.src('src/css/*.css')
+             .pipe(csso())
+             .pipe(autoprefixer({
+                  browsers:['last 2 versions'],
+                  cascade:false
+             }))
+             .pipe(rev())
+             .pipe(gulp.dest('dist/css'))
+             .pipe(rev.manifest())
+             .pipe(gulp.dest('dist/rev/css'))
+})
+
+//js：压缩，生成版本号
+gulp.task('dist:js',function () {
+  gulp.src('dist/js/*').pipe(clean());
+  return gulp.src('src/js/*.js')
+             .pipe(babel())
+             .pipe(uglify())
+             .pipe(rev())
+             .pipe(gulp.dest('dist/js'))
+             .pipe(rev.manifest())
+             .pipe(gulp.dest('dist/rev/js'))
+})
+
+const rev = require('gulp-rev');//对文件名加MD5后缀
+const revCollector = require('gulp-rev-collector');//路径替换
+//html，针对js,css,img
+gulp.task('rev',['dist:css',"dist:js","cssJsPathInHtml"], function() {
+  return gulp.src(['dist/rev/**/*.json', 'dist/*.html'])
+      .pipe(revCollector({replaceReved:true }))
+      .pipe(gulp.dest('dist'));
+})
+
+gulp.task('default',['rev'])
+
+//监听css，js修改
+gulp.task('watch',function () {
+  gulp.watch('src/**/*.css',['dist:css'])
+  gulp.watch('src/**/*.js',['dist:js'])
+})
+
+//js: 语法检查
+const jshint = require('gulp-jshint');//js语法检查
+const pkg = require('./package'); //导入package.json
+const jshintConfig = pkg.jshintConfig;//使用package.json中的配置项，或者单独使用.jshintrc文件
+//不要找.jshintrc文件了
+jshintConfig.lookup = false;
+
+gulp.task('jshint', function () {
+  gulp.src('src/js/*.js')
+      .pipe(jshint(jshintConfig))
+      .pipe(jshint.reporter('default'));
+});
+
+

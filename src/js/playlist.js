@@ -2,7 +2,7 @@ $(function(){
   let search = window.location.search
   let rId = Number(search.match(/\?rid=(\d+)/)[1])
   
-  $.get(`/src/playlist.json/list${rId+1}.json`).then(function(response){
+  $.get(`//owf5g9dnv.bkt.clouddn.com/playlists/list${rId+1}.json`).then(function(response){
     let listInfo = response
     
     $('.playlist-header .background-img').css('background-image',`url(${listInfo.rCoverUrl})`)
@@ -12,7 +12,7 @@ $(function(){
 
     //歌单名及作者
     let $titleInfo = $('.playlist-header .main')
-    $html1 = `
+    let $html1 = `
       <p class="title">${listInfo.rTitle}</p>
       <div class="editor">
         <img class="editor-photo" src="${listInfo.rCoverUrl}" class="img"></img>
@@ -26,10 +26,10 @@ $(function(){
     let labels = listInfo.rLabel
     let $labelList = $(`<ul class="label-list"></ul>`)
     labels.forEach(function(el){
-      $li = $(`<li>${el}</li>`)
+      let $li = $(`<li>${el}</li>`)
       $labelList.append($li)
     })
-    $html2 = $(`
+    let $html2 = $(`
       <div class="label">
         <p>标签：</p>
         ${$labelList[0].outerHTML}
@@ -51,13 +51,13 @@ $(function(){
     })
   })
 
-  $.get('/src/hotlist.json').then(function(response){
+  $.get('//owf5g9dnv.bkt.clouddn.com/hotlist.json').then(function(response){
     let songDB = response
     let $musicList = $('<ol></ol>')
     let $playlist = $('.playlist')
     
     songDB.forEach((ele,index)=>{
-      $li = $(`
+      let $li = $(`
         <li>
           <h3 class="order-number">${index+1}</h3>
           <div class="song">

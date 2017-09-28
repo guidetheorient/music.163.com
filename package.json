@@ -7,6 +7,17 @@
     "anywhere": "anywhere",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "jshintConfig": {
+    "undef": true,
+    "unused": true,
+    "predef": [
+      "MY_GLOBAL"
+    ],
+    "esversion": 6,
+    "asi": true,
+    "jquery": true,
+    "browser": true
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/guidetheorient/music.163.com.git"
@@ -28,8 +39,12 @@
     "gulp-clean": "^0.3.2",
     "gulp-csso": "^3.0.0",
     "gulp-htmlmin": "^3.0.0",
+    "gulp-jshint": "^2.0.4",
     "gulp-remove-empty-lines": "^0.1.0",
     "gulp-replace": "^0.6.1",
-    "gulp-uglify": "^3.0.0"
+    "gulp-rev": "^8.0.0",
+    "gulp-rev-collector": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "jshint": "^2.9.5"
   }
 }

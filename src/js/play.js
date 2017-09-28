@@ -115,7 +115,6 @@ $(function(){
       let $p = $('<p></p>')
       $p.attr({'class':'lrc-line'}).text('纯音乐，无歌词').appendTo($lrc).appendTo($lrcWrap)
     }else{
-      
       $.get(`//owf5g9dnv.bkt.clouddn.com/lrc/${id+1}.json`).then(function(response){
         let lyric = response.lrc.lyric
         let tlyric = response.tlyric.lyric
@@ -138,7 +137,7 @@ $(function(){
         }
         
         //生成歌词dom节点
-        originLrc.map((ele,index)=>{
+        originLrc.map((ele)=>{
           let $span1 = $('<span></span>')
           let $span2 = $('<span></span>')
           let $p = $('<p></p>')    

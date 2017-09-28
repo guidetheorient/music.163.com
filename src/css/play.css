@@ -194,7 +194,7 @@ body,
   bottom: 1rem;
   */
 }
-.play-footer>span{
+.play-footer>a{
   height: 2.1rem;
   flex-grow: 1;
   line-height: 2.1rem;

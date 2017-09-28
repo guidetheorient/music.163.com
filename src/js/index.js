@@ -1,12 +1,12 @@
 $(function(){
   //生成推荐歌单
-  $.get('/src/recommendList.json').then(function(response){
+  $.get('//owf5g9dnv.bkt.clouddn.com/recommendList.json').then(function(response){
     let recommendList = response
     let $recommendList = $('.recommend-playlists')
     let $ul = $('<ul></ul>')
 
-    recommendList.map(function(e,index){
-      $li = `
+    recommendList.map(function(e){
+      let $li = `
         <li data-rId=${e.rId}>
           <span class="view-time">
             <svg class="icon headphone" aria-hidden="true">
@@ -32,8 +32,8 @@ $(function(){
     let songDB = response
     let $latestMusic = $('.latest-music')
     let $musicList = $('<ol></ol>')
-    songDB.forEach((ele,index)=>{
-      $li = $(`
+    songDB.forEach((ele)=>{
+      let $li = $(`
         <li>
           <div class="song">
             <h3 class="song-name">${ele.songName}</h3>
@@ -84,17 +84,17 @@ $(function(){
     //已经加载过的，return掉
     if($liContent.attr('data-isLoaded')==='yes') {
       return
-    };
+    }
 
     //index= 1热歌榜
     if(index ===1){
-      $.get('./src/hotlist.json').then(function(response){
+      $.get('//owf5g9dnv.bkt.clouddn.com/hotlist.json').then(function(response){
         let songDB = response
         let $musicList = $('<ol></ol>')
         let $hotListTab = $('.hot-list-tab')
         let $updateDate = $('.hot-top .update-date')
         songDB.forEach((ele,index)=>{
-          $li = $(`
+          let $li = $(`
             <li>
               <h3 class="order-number">${orderNumber(index)}</h3>
               <div class="song">
@@ -160,10 +160,7 @@ $(function(){
       let $searchHistory = $('.search-history')
       //搜索时实时匹配结果
       let $syncSearch = $('.sync-search')
-      let $searchWhat = $('.search-what')
-      //localStorage搜索历史字符串转为数组匹配正则
-
-
+      
       //清空input值
       $emptyInput.on('click',function(){
         $searchBox.val('')
@@ -186,7 +183,7 @@ $(function(){
           $hotSearch.add($searchHistory).removeClass('active')
           
           //显示搜索的值
-          $h4 = $('<h4 class="search-what"></h4>').text(`搜索“${value}”`)
+          let $h4 = $('<h4 class="search-what"></h4>').text(`搜索“${value}”`)
           $syncSearch.html($h4).addClass('active')
           
           //input事件计时1s后，触发
@@ -196,7 +193,7 @@ $(function(){
             search(value).then(function(array){
               displaySearch(array)
             })
-          }, 1000);
+          }, 300);
         }
       })
 
@@ -232,7 +229,7 @@ $(function(){
           // console.log(itemArray)
           localStorage.setItem('searchHistory',`[${itemArray.toString()}]`)  
         }
-        console.log(localStorage.getItem('searchHistory'),2)
+        // console.log(localStorage.getItem('searchHistory'),2)
         //生成搜索历史的dom及事件
         let $ul = $('<ul></ul>')
         if(itemArray.length < 1) return;
@@ -269,7 +266,7 @@ $(function(){
           // console.log(e.currentTarget)
           // return
           let songName = $(e.currentTarget).text().trim()
-          $.get('/src/search.json').then(function(response){
+          $.get('//owf5g9dnv.bkt.clouddn.com/search.json').then(function(response){
             let songDB = response
             songDB.map(function(ele){
               if(ele.songName === songName){
@@ -283,7 +280,7 @@ $(function(){
 
       function displaySearch(array){
         let $musicList = $('<ul></ul>')
-        array.map(function(ele,index){
+        array.map(function(ele){
           let $li = $(`
             <li class="item" data-index= ${ele.id}>
               <svg class="icon search-icon" aria-hidden="true">
@@ -297,7 +294,7 @@ $(function(){
         $syncSearch.append($musicList)
         
         $('.sync-search>ul').on('click','li',function(e){
-          a = $(e.currentTarget).text()
+          
           let value = $(e.currentTarget).text().trim()
           generateHistory(value)
           location.href = `./play.html?id=${$(e.currentTarget).attr('data-index')}`
@@ -305,12 +302,12 @@ $(function(){
       }
 
       function search(value){
-        return new Promise(function(resolve,reject){
-          $.get('./src/search.json').then(function(response){
+        return new Promise(function(resolve){
+          $.get('//owf5g9dnv.bkt.clouddn.com/search.json').then(function(response){
             let songDB = response
             
-            let array = songDB.filter(function(ele,index){
-              for(key in ele){
+            let array = songDB.filter(function(ele){
+              for(let key in ele){
                 if(key!=='id' && ele[key].toString().toLowerCase().indexOf(value.toLowerCase())!==-1){
                   return true
                 }
