@@ -6,7 +6,7 @@
 
 请使用手机浏览器打开`http://jidong.life/dist`，或者使用手机QQ或微信扫描以下二维码
 
-![二维码](http://owf5g9dnv.bkt.clouddn.com/jidong.life.png)
+![二维码](http://owf5g9dnv.bkt.clouddn.com/jidong.life-dist.PNG)
 
 
 # 待优化
