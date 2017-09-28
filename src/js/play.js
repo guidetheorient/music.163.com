@@ -16,13 +16,18 @@ $(function(){
     let $needle = $('.needle')
     let $playBtn = $('.disc-container .play-btn')
     let $pauseBtn = $('.disc .pause-btn')
-
+    let $body = $('body')
     audio.src = url
     
     audio.oncanplay = function(){
-      audio.play()
-      $disc.addClass('playing')
-      $needle.addClass('active')
+      $body.one('touchstart',function(e){
+        if(e.currentTarget === $body[0] && e.target !== $playBtn[0]) {
+          e.stopPropagation()  
+          audio.play()
+          $disc.addClass('playing')
+          $needle.addClass('active')
+        }
+      })
     }
     audio.onended = function(){
       $disc.addClass('paused').removeClass('playing')
@@ -30,12 +35,14 @@ $(function(){
     }
 
     //播放，暂停键
-    $playBtn.click(function(){
+    $playBtn.click(function(e){
+      e.stopPropagation()
       audio.play()
       $disc.removeClass('paused').addClass('playing')
       $needle.addClass('active')
     })
-    $pauseBtn.click(function(){
+    $pauseBtn.click(function(e){
+      e.stopPropagation()
       audio.pause()
       $disc.addClass('paused').removeClass('playing')
       $needle.removeClass('active')      

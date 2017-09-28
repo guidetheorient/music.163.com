@@ -79,8 +79,7 @@ gulp.task('default',['rev'])
 
 //监听css，js修改
 gulp.task('watch',function () {
-  gulp.watch('src/**/*.css',['dist:css'])
-  gulp.watch('src/**/*.js',['dist:js'])
+  gulp.watch('src/**/*',['rev'])
 })
 
 //js: 语法检查
