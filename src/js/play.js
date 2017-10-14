@@ -18,15 +18,16 @@ $(function(){
     let $pauseBtn = $('.disc .pause-btn')
     let $body = $('body')
     audio.src = url
+    let i = 0
     
     audio.oncanplay = function(){
       //使用touchstart首次会触发$pauseBtn事件，还没开始就暂停了，改为click可以
       $body.one('click',function(e){
         if(e.currentTarget === $body[0] && e.target !== $playBtn[0]) {
-          console.log(1);console.log(e.target)
+          if(i>0) return
           e.stopPropagation()
           audio.play()
-          $disc.addClass('playing')
+          $disc.removeClass('paused').addClass('playing')
           $needle.addClass('active')
         }
       })
@@ -38,14 +39,13 @@ $(function(){
 
     //播放，暂停键
     $playBtn.click(function(e){
-      console.log(2)
+      i = 1
       e.stopPropagation()
       audio.play()
       $disc.removeClass('paused').addClass('playing')
       $needle.addClass('active')
     })
     $pauseBtn.click(function(e){
-      console.log(3);console.log(e.target);console.log(e.currentTarget)
       e.stopPropagation()
       audio.pause()
       $disc.addClass('paused').removeClass('playing')
